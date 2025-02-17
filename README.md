@@ -1,4 +1,4 @@
-# Samoa Data portal preparation
+# Samoa Data Portal data preparation
 
 A general template for SBS Data Portal data preparation.
 
