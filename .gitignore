@@ -24,6 +24,8 @@ data/*.xlsx
 data/*.zip
 data/*.json
 data/*.xml
+other/*.*
+
 
 # Session Data files
 .RData
