@@ -9,6 +9,10 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 
+# Read in the hscodes file
+hscodes <- read.csv("other/hscodes.csv")
+sitc <- read.csv("other/sitc.csv")
+
 
 #### *********************** IMTS table 1 processing *********************************** ####
 
@@ -34,7 +38,6 @@ table1_final <- rbind(table1, table1b)
 
 #Output table in csv format
 write.csv(table1_final, "output/imts/DF_IMTS_TABLE1.csv", row.names = FALSE)
-
 
 
 #### ********************** IMTS table 2 processing *********************************** #### 
