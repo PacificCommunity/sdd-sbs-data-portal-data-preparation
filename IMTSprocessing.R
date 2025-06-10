@@ -9,7 +9,7 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 
-# Read in the hscodes file
+# Read in the hscodes and sitc file
 hscodes <- read.csv("other/hscodes.csv")
 sitc <- read.csv("other/sitc.csv")
 
