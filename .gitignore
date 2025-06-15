@@ -6,6 +6,7 @@
 *.dta
 
 # temporary input and output folders
+output/*/
 output/*.csv
 output/*.png
 output/*.pdf
@@ -25,6 +26,7 @@ data/*.zip
 data/*.json
 data/*.xml
 other/*.*
+dotstatFolder/*/
 
 
 # Session Data files
