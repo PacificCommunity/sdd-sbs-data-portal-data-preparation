@@ -34,7 +34,7 @@ table2 <- read_excel("data/cpiData.xlsx", sheet = "table2")
 
 table2_long <- table2 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12)[-2])),
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
@@ -85,7 +85,7 @@ table5 <- read_excel("data/cpiData.xlsx", sheet = "table5")
 
 table5_long <- table5 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12)[-2])),
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
@@ -130,7 +130,7 @@ table7_long <- table7_long |>
   mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 #Output table in csv format
-write.csv(table7_long, "output/cpi/DF_CPI_TABLE6.csv", row.names = FALSE)
+write.csv(table7_long, "output/cpi/DF_CPI_TABLE7.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 8 processing *********************************** ####
@@ -148,4 +148,4 @@ table8_long <- table8_long |>
   mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 #Output table in csv format
-write.csv(table8_long, "output/cpi/DF_CPI_TABLE6.csv", row.names = FALSE)
+write.csv(table8_long, "output/cpi/DF_CPI_TABLE8.csv", row.names = FALSE)
