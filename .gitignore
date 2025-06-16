@@ -19,6 +19,7 @@ output/*.docx
 output/*.json
 output/*.xml
 output/*.tsv
+data/*/
 data/*.csv
 data/*.tsv
 data/*.xlsx
