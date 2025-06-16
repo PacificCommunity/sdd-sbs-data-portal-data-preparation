@@ -76,7 +76,76 @@ table4_long <- table4_long |>
   mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 #Output table in csv format
-write.csv(table4_long, "output/cpi/DF_CPI_TABLE1.csv", row.names = FALSE)
+write.csv(table4_long, "output/cpi/DF_CPI_TABLE4.csv", row.names = FALSE)
 
 
+#### *********************** IMTS table 5 processing *********************************** ####
 
+table5 <- read_excel("data/cpiData.xlsx", sheet = "table5")
+
+table5_long <- table5 %>%
+  pivot_longer(
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12)[-2])),
+    names_to = "ITEM",
+    values_to = "OBS_VALUE"
+  )
+
+table5_long <- table5_long |>
+  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
+
+#Output table in csv format
+write.csv(table5_long, "output/cpi/DF_CPI_TABLE5.csv", row.names = FALSE)
+
+
+#### *********************** IMTS table 6 processing *********************************** ####
+
+table6 <- read_excel("data/cpiData.xlsx", sheet = "table6")
+
+table6_long <- table6 %>%
+  pivot_longer(
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    names_to = "ITEM",
+    values_to = "OBS_VALUE"
+  )
+
+table6_long <- table6_long |>
+  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
+
+#Output table in csv format
+write.csv(table6_long, "output/cpi/DF_CPI_TABLE6.csv", row.names = FALSE)
+
+
+#### *********************** IMTS table 7 processing *********************************** ####
+
+table7 <- read_excel("data/cpiData.xlsx", sheet = "table7")
+
+table7_long <- table7 %>%
+  pivot_longer(
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    names_to = "ITEM",
+    values_to = "OBS_VALUE"
+  )
+
+table7_long <- table7_long |>
+  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
+
+#Output table in csv format
+write.csv(table7_long, "output/cpi/DF_CPI_TABLE6.csv", row.names = FALSE)
+
+
+#### *********************** IMTS table 8 processing *********************************** ####
+
+table8 <- read_excel("data/cpiData.xlsx", sheet = "table8")
+
+table8_long <- table8 %>%
+  pivot_longer(
+    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    names_to = "ITEM",
+    values_to = "OBS_VALUE"
+  )
+
+table8_long <- table8_long |>
+  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
+
+#Output table in csv format
+write.csv(table8_long, "output/cpi/DF_CPI_TABLE6.csv", row.names = FALSE)
