@@ -9,7 +9,7 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 
-#### *********************** IMTS table 1 processing *********************************** ####
+#### *********************** National Accounts table 1 processing *********************************** ####
 
 table1 <- read_excel("data/naData.xlsx", sheet = "table1")
 
@@ -25,7 +25,7 @@ table1_long <- table1 %>%
 write.csv(table1_long, "output/na/DF_NA_A.csv", row.names = FALSE)
 
 
-#### *********************** IMTS table 2 processing *********************************** ####
+#### *********************** National Accounts table 2 processing *********************************** ####
 
 table2 <- read_excel("data/naData.xlsx", sheet = "table2")
 
@@ -41,7 +41,7 @@ table2_long <- table2 %>%
 write.csv(table2_long, "output/na/DF_NA_Q.csv", row.names = FALSE)
 
 
-#### *********************** IMTS table 3 processing *********************************** ####
+#### *********************** National Accounts table 3 processing *********************************** ####
 
 table3 <- read_excel("data/naData.xlsx", sheet = "table3")
 
