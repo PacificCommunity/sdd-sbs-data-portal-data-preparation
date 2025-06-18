@@ -16,20 +16,16 @@ table1 <- read_excel("data/cpiData.xlsx", sheet = "table1")
 
 table1_long <- table1 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table1_long <- table1_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table1_long <- table1_long |>
   select(DATAFLOW, FREQ, REF_AREA, INDICATOR, ITEM, TRANSFORMATION, TIME_PERIOD,
          OBS_VALUE, UNIT_MEASURE, BASE_PER, OBS_STATUS, COMMENT, DECIMALS) |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
-
 
 #Output table in csv format
 write.csv(table1_long, "output/cpi/DF_CPI_TABLE1.csv", row.names = FALSE)
@@ -41,13 +37,10 @@ table2 <- read_excel("data/cpiData.xlsx", sheet = "table2")
 
 table2_long <- table2 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table2_long <- table2_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table2_long <- table2_long |>
@@ -65,7 +58,7 @@ table3 <- read_excel("data/cpiData.xlsx", sheet = "table3")
 
 table3_long <- table3 %>%
   pivot_longer(
-    cols = starts_with("ITEM_"),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
@@ -86,13 +79,10 @@ table4 <- read_excel("data/cpiData.xlsx", sheet = "table4")
 
 table4_long <- table4 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table4_long <- table4_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table4_long <- table4_long |>
@@ -110,13 +100,10 @@ table5 <- read_excel("data/cpiData.xlsx", sheet = "table5")
 
 table5_long <- table5 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table5_long <- table5_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table5_long <- table5_long |>
@@ -134,13 +121,10 @@ table6 <- read_excel("data/cpiData.xlsx", sheet = "table6")
 
 table6_long <- table6 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table6_long <- table6_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table6_long <- table6_long |>
@@ -158,13 +142,10 @@ table7 <- read_excel("data/cpiData.xlsx", sheet = "table7")
 
 table7_long <- table7 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table7_long <- table7_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table7_long <- table7_long |>
@@ -182,13 +163,10 @@ table8 <- read_excel("data/cpiData.xlsx", sheet = "table8")
 
 table8_long <- table8 %>%
   pivot_longer(
-    cols = c("Total", paste0("ITEM_", sprintf("%02d", 1:12))),
+    cols = -c(DATAFLOW:DECIMALS),
     names_to = "ITEM",
     values_to = "OBS_VALUE"
   )
-
-table8_long <- table8_long |>
-  mutate(ITEM = ifelse(ITEM == "Total", "_T", ITEM))
 
 # Re-order the columns in the proper order
 table8_long <- table8_long |>

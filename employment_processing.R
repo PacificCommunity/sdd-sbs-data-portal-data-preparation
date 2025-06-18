@@ -17,7 +17,7 @@ table1 <- read_excel("data/emp_Data.xlsx", sheet = "table1")
 # Reshape from wide to long format
 table1_long <- table1 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -40,7 +40,7 @@ table2 <- read_excel("data/emp_Data.xlsx", sheet = "table2")
 # Reshape from wide to long format
 table2_long <- table2 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -63,7 +63,7 @@ table3 <- read_excel("data/emp_Data.xlsx", sheet = "table3")
 # Reshape from wide to long format
 table3_long <- table3 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -86,7 +86,7 @@ table4a <- read_excel("data/emp_Data.xlsx", sheet = "table4a")
 # Reshape from wide to long format
 table4a_long <- table4a %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -109,7 +109,7 @@ table4b <- read_excel("data/emp_Data.xlsx", sheet = "table4b")
 # Reshape from wide to long format
 table4b_long <- table4b %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -132,7 +132,7 @@ table5 <- read_excel("data/emp_Data.xlsx", sheet = "table5")
 # Reshape from wide to long format
 table5_long <- table5 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -155,7 +155,7 @@ table6a <- read_excel("data/emp_Data.xlsx", sheet = "table6a")
 # Reshape from wide to long format
 table6a_long <- table6a %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -178,7 +178,7 @@ table6b <- read_excel("data/emp_Data.xlsx", sheet = "table6b")
 # Reshape from wide to long format
 table6b_long <- table6b %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -201,7 +201,7 @@ table7 <- read_excel("data/emp_Data.xlsx", sheet = "table7")
 # Reshape from wide to long format
 table7_long <- table7 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -224,7 +224,7 @@ table8a <- read_excel("data/emp_Data.xlsx", sheet = "table8a")
 # Reshape from wide to long format
 table8a_long <- table8a %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -247,7 +247,7 @@ table8b <- read_excel("data/emp_Data.xlsx", sheet = "table8b")
 # Reshape from wide to long format
 table8b_long <- table8b %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -270,7 +270,7 @@ table9 <- read_excel("data/emp_Data.xlsx", sheet = "table9")
 # Reshape from wide to long format
 table9_long <- table9 %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -293,7 +293,7 @@ table10a <- read_excel("data/emp_Data.xlsx", sheet = "table10a")
 # Reshape from wide to long format
 table10a_long <- table10a %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )
@@ -316,7 +316,7 @@ table10b <- read_excel("data/emp_Data.xlsx", sheet = "table10b")
 # Reshape from wide to long format
 table10b_long <- table10b %>%
   pivot_longer(
-    cols = A01:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "INDUSTRY",
     values_to = "OBS_VALUE"
   )

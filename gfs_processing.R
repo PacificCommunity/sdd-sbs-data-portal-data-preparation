@@ -155,7 +155,3 @@ table6_final <- table6_final |>
 
 #Output table in csv format
 write.csv(table6_final, "output/gfs/DF_GFS_TABLE6.csv", row.names = FALSE)
-
-
-
-
