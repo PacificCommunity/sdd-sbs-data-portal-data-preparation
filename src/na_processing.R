@@ -11,7 +11,7 @@ library(tidyverse)
 
 #### *********************** National Accounts table 1 processing *********************************** ####
 
-table1 <- read_excel("data/naData.xlsx", sheet = "table1")
+table1 <- read_excel("../data/naData.xlsx", sheet = "table1")
 
 table1_long <- table1 %>%
   pivot_longer(
@@ -27,12 +27,12 @@ table1_long <- table1_long |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table in csv format
-write.csv(table1_long, "output/na/DF_NA_A.csv", row.names = FALSE)
+write.csv(table1_long, "../output/na/DF_NA_A.csv", row.names = FALSE)
 
 
 #### *********************** National Accounts table 2 processing *********************************** ####
 
-table2 <- read_excel("data/naData.xlsx", sheet = "table2")
+table2 <- read_excel("../data/naData.xlsx", sheet = "table2")
 
 table2_long <- table2 %>%
   pivot_longer(
@@ -48,12 +48,12 @@ table2_long <- table2_long |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table in csv format
-write.csv(table2_long, "output/na/DF_NA_Q.csv", row.names = FALSE)
+write.csv(table2_long, "../output/na/DF_NA_Q.csv", row.names = FALSE)
 
 
 #### *********************** National Accounts table 3 processing *********************************** ####
 
-table3 <- read_excel("data/naData.xlsx", sheet = "table3")
+table3 <- read_excel("../data/naData.xlsx", sheet = "table3")
 
 table3_long <- table3 %>%
   pivot_longer(
@@ -69,4 +69,4 @@ table3_long <- table3_long |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table in csv format
-write.csv(table3_long, "output/na/DF_NA_F07.csv", row.names = FALSE)
+write.csv(table3_long, "../output/na/DF_NA_F07.csv", row.names = FALSE)
