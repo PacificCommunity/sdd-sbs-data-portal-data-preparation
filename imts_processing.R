@@ -17,7 +17,7 @@ table1a <- read_excel("data/imts_Data.xlsx", sheet = "table1a")
 # Reshape from wide to long format
 table1a_long <- table1a %>%
   pivot_longer(
-    cols = c(X, M, B),
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "TRADE_FLOW",
     values_to = "OBS_VALUE"
   )
@@ -28,7 +28,7 @@ table1b <- read_excel("data/imts_Data.xlsx", sheet = "table1b")
 # Reshape from wide to long format
 table1b_long <- table1b %>%
   pivot_longer(
-    cols = c(X, M, B),
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "TRADE_FLOW",
     values_to = "OBS_VALUE"
   )
@@ -55,7 +55,7 @@ table2a <- read_excel("data/imts_Data.xlsx", sheet = "table2a")
 table2a_long <- table2a %>%
   mutate(across(starts_with("HS_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("HS_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -67,7 +67,7 @@ table2b <- read_excel("data/imts_Data.xlsx", sheet = "table2b")
 table2b_long <- table2b |>
   mutate(across(starts_with("HS_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("HS_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -95,7 +95,7 @@ table3a <- read_excel("data/imts_Data.xlsx", sheet = "table3a")
 table3a_long <- table3a %>%
   mutate(across(starts_with("SITC_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("SITC_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -107,7 +107,7 @@ table3b <- read_excel("data/imts_Data.xlsx", sheet = "table3b")
 table3b_long <- table3b |>
   mutate(across(starts_with("SITC_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("SITC_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -133,7 +133,7 @@ table4a <- read_excel("data/imts_Data.xlsx", sheet = "table4a")
 # Reshape from wide to long format
 table4a_long <- table4a %>%
   pivot_longer(
-    cols = AFR:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COUNTERPART_AREA",
     values_to = "OBS_VALUE"
   )
@@ -144,7 +144,7 @@ table4b <- read_excel("data/imts_Data.xlsx", sheet = "table4b")
 # Reshape from wide to long format
 table4b_long <- table4b %>%
   pivot_longer(
-    cols = AFR:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COUNTERPART_AREA",
     values_to = "OBS_VALUE"
   )
@@ -171,7 +171,7 @@ table5a <- read_excel("data/imts_Data.xlsx", sheet = "table5a")
 table5a_long <- table5a %>%
   mutate(across(starts_with("HS_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("HS_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -183,7 +183,7 @@ table5b <- read_excel("data/imts_Data.xlsx", sheet = "table5b")
 table5b_long <- table5b |>
   mutate(across(starts_with("HS_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("HS_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -211,7 +211,7 @@ table6a <- read_excel("data/imts_Data.xlsx", sheet = "table6a")
 table6a_long <- table6a %>%
   mutate(across(starts_with("SITC_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("SITC_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -223,7 +223,7 @@ table6b <- read_excel("data/imts_Data.xlsx", sheet = "table6b")
 table6b_long <- table6b |>
   mutate(across(starts_with("SITC_"):`_T`, as.numeric)) %>%
   pivot_longer(
-    cols = starts_with("SITC_"):`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COMMODITY",
     values_to = "OBS_VALUE"
   )
@@ -249,7 +249,7 @@ table7a <- read_excel("data/imts_Data.xlsx", sheet = "table7a")
 # Reshape from wide to long format
 table7a_long <- table7a %>%
   pivot_longer(
-    cols = AFR:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COUNTERPART_AREA",
     values_to = "OBS_VALUE"
   )
@@ -260,7 +260,7 @@ table7b <- read_excel("data/imts_Data.xlsx", sheet = "table7b")
 # Reshape from wide to long format
 table7b_long <- table7b %>%
   pivot_longer(
-    cols = AFR:`_T`,
+    cols = -c(DATAFLOW:TIME_PERIOD),
     names_to = "COUNTERPART_AREA",
     values_to = "OBS_VALUE"
   )
