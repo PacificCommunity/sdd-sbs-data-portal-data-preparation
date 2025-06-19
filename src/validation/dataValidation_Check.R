@@ -4,7 +4,7 @@ library(dplyr)
 library(DT)
 
 ui <- fluidPage(
-  titlePanel("SDMX Data Validation Tool"),
+  titlePanel("SBS Data Portal Data Validation Tool"),
   
   sidebarLayout(
     sidebarPanel(
@@ -92,7 +92,55 @@ server <- function(input, output) {
           cat("✅ All REF_AREA values are 'WS'.\n\n")
         }
       }
-            
+      
+      # Check that FREQ values are only "A", "Q", or "M"
+      if ("FREQ" %in% names(df)) {
+        invalid_freq <- unique(df$FREQ[!df$FREQ %in% c("A", "Q", "M")])
+        if (length(invalid_freq) > 0) {
+          cat("❌ Invalid FREQ values found (allowed: A, Q, M):\n")
+          print(invalid_freq)
+          cat("\n")
+        } else {
+          cat("✅ All FREQ values are valid (A, Q, M).\n\n")
+        }
+      }
+      
+      # TIME_PERIOD length must be 4 when FREQ is "A"
+      if (all(c("FREQ", "TIME_PERIOD") %in% names(df))) {
+        invalid_time <- df$TIME_PERIOD[nchar(df$TIME_PERIOD) > 4 & df$FREQ == "A"]
+        if (length(invalid_time) > 0) {
+          cat("❌ TIME_PERIOD values longer than 4 characters found where FREQ is 'A':\n")
+          print(unique(invalid_time))
+          cat("\n")
+        } else {
+          cat("✅ All TIME_PERIOD values are valid for FREQ = 'A'.\n\n")
+        }
+      }
+      
+      # Additional TIME_PERIOD format checks for FREQ = Q and M
+      if (all(c("FREQ", "TIME_PERIOD") %in% names(df))) {
+        
+        # Check for FREQ = "Q"
+        invalid_q <- df$TIME_PERIOD[df$FREQ == "Q" & !grepl("^\\d{4}-Q[1-4]$", df$TIME_PERIOD)]
+        if (length(invalid_q) > 0) {
+          cat("❌ Invalid TIME_PERIOD values for FREQ = 'Q' (expected format 'YYYY-Qn'):\n")
+          print(unique(invalid_q))
+          cat("\n")
+        } else {
+          cat("✅ All TIME_PERIOD values are valid for FREQ = 'Q'.\n\n")
+        }
+        
+        # Check for FREQ = "M"
+        invalid_m <- df$TIME_PERIOD[df$FREQ == "M" & !grepl("^\\d{4}-\\d{2}$", df$TIME_PERIOD)]
+        if (length(invalid_m) > 0) {
+          cat("❌ Invalid TIME_PERIOD values for FREQ = 'M' (expected format 'YYYY-MM'):\n")
+          print(unique(invalid_m))
+          cat("\n")
+        } else {
+          cat("✅ All TIME_PERIOD values are valid for FREQ = 'M'.\n\n")
+        }
+      }
+      
       # Additional custom checks can go here
       
       cat("=== End of Report ===\n")
