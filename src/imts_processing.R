@@ -43,7 +43,7 @@ table1_final <- table1_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table1 to csv output
-write.csv(table1_final, "../output/imts/DF_IMTS_TABLE1.csv")
+write.csv(table1_final, "../output/imts/DF_IMTS_TABLE1.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 2 processing *********************************** ####
@@ -83,7 +83,7 @@ table2_final <- table2_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table2 to csv output
-write.csv(table2_final, "../output/imts/DF_IMTS_TABLE2.csv")
+write.csv(table2_final, "../output/imts/DF_IMTS_TABLE2.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 3 processing *********************************** ####
@@ -122,7 +122,7 @@ table3_final <- table3_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table2 to csv output
-write.csv(table3_final, "../output/imts/DF_IMTS_TABLE3.csv")
+write.csv(table3_final, "../output/imts/DF_IMTS_TABLE3.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 4 processing *********************************** ####
@@ -159,7 +159,7 @@ table4_final <- table4_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table2 to csv output
-write.csv(table4_final, "../output/imts/DF_IMTS_TABLE4.csv")
+write.csv(table4_final, "../output/imts/DF_IMTS_TABLE4.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 5 processing *********************************** ####
@@ -199,7 +199,7 @@ table5_final <- table5_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table2 to csv output
-write.csv(table5_final, "../output/imts/DF_IMTS_TABLE5.csv")
+write.csv(table5_final, "../output/imts/DF_IMTS_TABLE5.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 6 processing *********************************** ####
@@ -238,7 +238,7 @@ table6_final <- table6_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table6 to csv output
-write.csv(table6_final, "../output/imts/DF_IMTS_TABLE6.csv")
+write.csv(table6_final, "../output/imts/DF_IMTS_TABLE6.csv", row.names = FALSE)
 
 
 #### *********************** IMTS table 7 processing *********************************** ####
@@ -275,4 +275,4 @@ table7_final <- table7_final |>
   mutate(across(everything(), ~replace(., is.na(.), "")))
 
 #Output table2 to csv output
-write.csv(table7_final, "../output/imts/DF_IMTS_TABLE7.csv")
+write.csv(table7_final, "../output/imts/DF_IMTS_TABLE7.csv", row.names = FALSE)
