@@ -40,7 +40,8 @@ while (i <= numsheet) {
           ),
           across(everything(), ~replace(., is.na(.), ""))
            )
-  
+
+    mutate(across(everything(), ~replace(., is.na(.), "")))  
   sheetName <- paste0("../output/emp/",sheet_names[i],".csv")
   
   # Output table1 to output csv file
