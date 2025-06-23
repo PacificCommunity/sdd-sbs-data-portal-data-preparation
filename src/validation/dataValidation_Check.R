@@ -1,9 +1,34 @@
 library(shiny)
+library(readxl)
+library(openxlsx)
 library(readr)
 library(dplyr)
+library(tidyr)
 library(DT)
+library(shinyjs)
+
+# Define credentials (in production, use secure authentication)
+credentials <- data.frame(
+  username = c("admin", "user"),
+  password = c("admin123", "user123"),
+  stringsAsFactors = FALSE
+)
 
 ui <- fluidPage(
+  useShinyjs(),
+  
+  # Login UI
+  div(id = "login_page",
+      wellPanel(
+        textInput("user_name", "Username"),
+        passwordInput("password", "Password"),
+        actionButton("login_btn", "Log in"),
+        verbatimTextOutput("login_status")
+      )
+  ),
+  
+  hidden(
+    div(id = "main_app",
   titlePanel("SBS Data Portal Data Validation Tool"),
   
   sidebarLayout(
@@ -16,12 +41,29 @@ ui <- fluidPage(
       tabsetPanel(
         tabPanel("Data Preview", DTOutput("table")),
         tabPanel("Validation Results", verbatimTextOutput("validation"))
-      )
-    )
-  )
+       )
+     )
+   )
+ )
+)
 )
 
 server <- function(input, output) {
+  
+  # Login logic
+  observeEvent(input$login_btn, {
+    user <- input$user_name
+    pass <- input$password
+    
+    valid <- any(credentials$username == user & credentials$password == pass)
+    
+    if (valid) {
+      shinyjs::hide("login_page")
+      shinyjs::show("main_app")
+    } else {
+      output$login_status <- renderText("Invalid credentials. Try again.")
+    }
+  })
   
   # Reactive to store uploaded data
   data <- reactive({
@@ -41,7 +83,7 @@ server <- function(input, output) {
       df <- data()
       
       # Basic checks
-      required_cols <- c("DATAFLOW", "FREQ", "REF_AREA", "TIME_PERIOD", "OBS_VALUE")
+      required_cols <- c("DATAFLOW", "FREQ", "REF_AREA", "TIME_PERIOD", "OBS_VALUE", "UNIT_MEASURE")
       missing_cols <- setdiff(required_cols, names(df))
       
       cat("=== SDMX Validation Report ===\n\n")

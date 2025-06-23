@@ -8,7 +8,6 @@ library(readxl)
 library(dplyr)
 library(tidyverse)
 
-
 #### ************************* CPI tables Processing ************************* ####
 
 # Path to your Excel file
@@ -35,8 +34,16 @@ while (i <= numsheet) {
   table_long <- table_long |>
     relocate( ITEM, .before = TRANSFORMATION) |>
     relocate(OBS_VALUE, .before = UNIT_MEASURE) |>
+    mutate(FREQ = case_when(
+        grepl("-Q[1-4]", TIME_PERIOD) ~ "Q",
+        grepl("-0[1-9]|-1[0-2]", TIME_PERIOD) ~ "M",
+        TRUE ~ "A"
+      ),
+        across(everything(), ~replace(., is.na(.), ""))
+          )
+
     mutate(across(everything(), ~replace(., is.na(.), "")))
-  
+
   sheetName <- paste0("../output/cpi/",sheet_names[i],".csv")
   
   # Output table1 to output csv file
