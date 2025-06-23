@@ -33,7 +33,13 @@ while (i <= numsheet) {
   # Re-order the columns in the proper order
   table_long <- table_long |>
     relocate(OBS_VALUE, .before = UNIT_MEASURE) |>
-    mutate(across(everything(), ~replace(., is.na(.), "")))
+    mutate(FREQ = case_when(
+      grepl("-Q[1-4]", TIME_PERIOD) ~ "Q",
+      grepl("-0[1-9]|-1[0-2]", TIME_PERIOD) ~ "M",
+      TRUE ~ "A"
+          ),
+          across(everything(), ~replace(., is.na(.), ""))
+           )
   
   sheetName <- paste0("../output/emp/",sheet_names[i],".csv")
   
