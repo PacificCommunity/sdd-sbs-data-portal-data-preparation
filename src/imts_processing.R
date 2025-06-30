@@ -1,13 +1,12 @@
-#Map working directory
-repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
-setwd(repository)
-
 #Load required libraries
-#library(data.table)
 library(openxlsx)
 library(readxl)
 library(dplyr)
 library(tidyverse)
+
+#Map working directory
+repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
+setwd(repository)
 
 #### *********************** IMTS table 1 processing *********************************** ####
 
