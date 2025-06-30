@@ -29,23 +29,23 @@ ui <- fluidPage(
   
   hidden(
     div(id = "main_app",
-  titlePanel("SBS Data Portal Data Validation Tool"),
-  
-  sidebarLayout(
-    sidebarPanel(
-      fileInput("file", "Upload CSV File", accept = ".csv"),
-      actionButton("validate", "Run Validation")
-    ),
-    
-    mainPanel(
-      tabsetPanel(
-        tabPanel("Data Preview", DTOutput("table")),
-        tabPanel("Validation Results", verbatimTextOutput("validation"))
-       )
-     )
-   )
- )
-)
+        titlePanel("SBS Data Portal Data Validation Tool"),
+        
+        sidebarLayout(
+          sidebarPanel(
+            fileInput("file", "Upload CSV File", accept = ".csv"),
+            actionButton("validate", "Run Validation")
+          ),
+          
+          mainPanel(
+            tabsetPanel(
+              tabPanel("Data Preview", DTOutput("table")),
+              tabPanel("Validation Results", verbatimTextOutput("validation"))
+            )
+          )
+        )
+    )
+  )
 )
 
 server <- function(input, output) {
@@ -112,7 +112,7 @@ server <- function(input, output) {
       } else {
         cat("✅ OBS_VALUE is numeric.\n\n")
       }
-
+      
       # Duplicate check (based on all columns or a subset)
       if (nrow(df) != nrow(distinct(df))) {
         dup_rows <- df[duplicated(df), ]
